@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PMML version="4.2" xmlns="http://www.dmg.org/PMML-4_2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.dmg.org/PMML-4_2 http://www.dmg.org/v4-2/pmml-4-2.xsd">
+    <Header copyright="Copyright (c) 2014, Alibaba Inc." description="">
+        <Application name="ODPS/PMML" version="0.1.0"/>
+        <Timestamp>Wed, 12 Oct 2022 07:15:17 GMT</Timestamp>
+    </Header>
+    <DataDictionary numberOfFields="6">
+        <DataField name="gdp" optype="continuous" dataType="double"/>
+        <DataField name="shls" optype="continuous" dataType="double"/>
+        <DataField name="csrj" optype="continuous" dataType="double"/>
+        <DataField name="ncrj" optype="continuous" dataType="double"/>
+        <DataField name="rkzs" optype="continuous" dataType="double"/>
+        <DataField name="nxs" optype="continuous" dataType="double">
+            <Value value="nxs"/>
+        </DataField>
+    </DataDictionary>
+    <RegressionModel modelName="xlab_m_linearregression_70651_v0" functionName="regression"
+                     algorithmName="LinearRegression">
+        <MiningSchema>
+            <MiningField name="gdp" usageType="active"/>
+            <MiningField name="shls" usageType="active"/>
+            <MiningField name="csrj" usageType="active"/>
+            <MiningField name="ncrj" usageType="active"/>
+            <MiningField name="rkzs" usageType="active"/>
+            <MiningField name="nxs" usageType="target"/>
+        </MiningSchema>
+        <Output>
+            <OutputField name="p_nxs" optype="continuous" dataType="double" feature="predictedValue"/>
+        </Output>
+        <RegressionTable intercept="-2288190.660763339">
+            <NumericPredictor name="gdp" exponent="1" coefficient="11.52493861161881"/>
+            <NumericPredictor name="shls" exponent="1" coefficient="-127.6076128605065"/>
+            <NumericPredictor name="csrj" exponent="1" coefficient="-35.44681810551504"/>
+            <NumericPredictor name="ncrj" exponent="1" coefficient="81.58571529218268"/>
+            <NumericPredictor name="rkzs" exponent="1" coefficient="2426.083791711399"/>
+        </RegressionTable>
+    </RegressionModel>
+</PMML>
